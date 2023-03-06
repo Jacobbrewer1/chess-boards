@@ -25,6 +25,7 @@ jobs:
     - name: Setup project
       run: |
         cd ./src
+        ls
 
     - name: Build
       run: go build -v
