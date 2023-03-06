@@ -1,0 +1,24 @@
+---
+name: config
+
+setup:
+  listeningPort: "8443"
+  certificatePath: "./certs/certificate.crt"
+  keyPath: "./certs/privatekey.key"
+
+databases:
+  mysql:
+    user: root
+    password: Pa**W0rd01
+    method: tcp
+    host: 127.0.0.1
+    port: '3306'
+    schema: chess
+    query: timeout=2s&parseTime=true
+  mongoDb:
+    host: 127.0.0.1
+    port: '27017'
+    database: chess
+    collections:
+      session: session
+      matches: matches
