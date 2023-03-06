@@ -24,7 +24,6 @@ jobs:
         
     - name: Setup project
       run: |
-        go mod tidy
         cd ./src
 
     - name: Build
