@@ -25,7 +25,9 @@ jobs:
         GOPATH: /home/runner/work/chess-boards
     
     - name: Setup
-      run: go env
+      run: |
+        go env
+        go mod tidy
 
     - name: Build
       run: go build -v ./...
