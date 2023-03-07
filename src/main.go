@@ -2,11 +2,14 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"github.com/Jacobbrewer1/chess-boards/src/config"
 	"github.com/Jacobbrewer1/chess-boards/src/dataaccess/dal"
+	"github.com/gorilla/mux"
 	"html/template"
 	"log"
 	"net/http"
+	"runtime/debug"
 )
 
 func init() {
@@ -77,5 +80,23 @@ func initTemplates() {
 }
 
 func main() {
-	log.Println(config.Cfg.Setup.ListeningPort)
+	defer func() {
+		if recovery := recover(); recovery != nil {
+			log.Println("main recovery:", recovery)
+			log.Println("stacktrace:", string(debug.Stack()))
+		}
+	}()
+
+	r := mux.NewRouter()
+
+	http.Handle("/", r)
+
+	log.Println("listening...")
+	if err := http.ListenAndServeTLS(
+		fmt.Sprintf(":%s", config.Cfg.Setup.ListeningPort),
+		config.Cfg.Setup.CertPath,
+		config.Cfg.Setup.KeyPath,
+		nil); err != nil {
+		panic(err)
+	}
 }

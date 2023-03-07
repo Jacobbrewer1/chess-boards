@@ -3,7 +3,7 @@ name: config
 
 setup:
   listeningPort: "8443"
-  certificatePath: "./certs/certificate.crt"
+  certPath: "./certs/certificate.crt"
   keyPath: "./certs/privatekey.key"
 
 databases:
