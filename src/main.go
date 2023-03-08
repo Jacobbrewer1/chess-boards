@@ -115,12 +115,6 @@ func init() {
 	}
 	log.Println(got)
 
-	//client := redis.NewClient(&redis.Options{
-	//	Addr:     "127.0.0.1:6379",
-	//	Password: "",
-	//	DB:       0,
-	//})
-	//
 	//now := time.Now()
 	//exp := time.Now().Add(time.Hour * 6)
 	//s := session.Session{
