@@ -115,8 +115,6 @@ func init() {
 	}
 	log.Println(got)
 
-	//fmt.Println("Go Redis Tutorial")
-	//
 	//client := redis.NewClient(&redis.Options{
 	//	Addr:     "127.0.0.1:6379",
 	//	Password: "",
