@@ -9,18 +9,18 @@ type ConnectionSet struct {
 	chessMongoDB *connection.MongoDB
 }
 
-func (c *ConnectionSet) BadmintonManagerMysql() *connection.MySql {
+func (c *ConnectionSet) ChessMysql() *connection.MySql {
 	return c.chessMysql
 }
 
-func (c *ConnectionSet) SetBadmintonManagerMysql(chessMysql *connection.MySql) {
+func (c *ConnectionSet) SetChessMysql(chessMysql *connection.MySql) {
 	c.chessMysql = chessMysql
 }
 
-func (c *ConnectionSet) BadmintonManagerMongoDB() *connection.MongoDB {
+func (c *ConnectionSet) ChessMongoDB() *connection.MongoDB {
 	return c.chessMongoDB
 }
 
-func (c *ConnectionSet) SetBadmintonManagerMongoDB(chessMongoDB *connection.MongoDB) {
+func (c *ConnectionSet) SetChessMongoDB(chessMongoDB *connection.MongoDB) {
 	c.chessMongoDB = chessMongoDB
 }

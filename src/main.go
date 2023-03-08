@@ -58,12 +58,12 @@ func initConfig() {
 func initDatabases() {
 	log.Println("testing mysql database connection")
 	config.Cfg.Databases.MysqlCredentials.Ping()
-	dal.Connections.SetBadmintonManagerMysql(config.Cfg.Databases.MysqlCredentials)
+	dal.Connections.SetChessMysql(config.Cfg.Databases.MysqlCredentials)
 	log.Println("mysql database connected")
 
 	log.Println("testing mongodb connection")
 	config.Cfg.Databases.MongoDbCredentials.Ping()
-	dal.Connections.SetBadmintonManagerMongoDB(config.Cfg.Databases.MongoDbCredentials)
+	dal.Connections.SetChessMongoDB(config.Cfg.Databases.MongoDbCredentials)
 	log.Println("mongodb connected")
 }
 
