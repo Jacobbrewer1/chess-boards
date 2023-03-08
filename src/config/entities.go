@@ -19,5 +19,6 @@ type (
 	Databases struct {
 		MysqlCredentials   *connection.MySql   `json:"mysql,omitempty" yaml:"mysql,omitempty"`
 		MongoDbCredentials *connection.MongoDB `json:"mongoDb,omitempty" yaml:"mongoDb,omitempty"`
+		RedisDbCredentials *connection.RedisDb `json:"redis,omitempty" yaml:"redis,omitempty"`
 	}
 )
