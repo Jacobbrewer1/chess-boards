@@ -33,11 +33,16 @@ func (d *Datetime) UnmarshalBSON(bytes []byte) error {
 }
 
 func (d *Datetime) MarshalJSON() ([]byte, error) {
-	return []byte(d.UTC().String()), nil
+	return d.MarshalText()
 }
 
 func (d *Datetime) MarshalText() ([]byte, error) {
-	return []byte(d.UTC().String()), nil
+	b := make([]byte, 0, len(time.RFC3339)+2)
+	b = append(b, '"')
+	b = append(b, []byte(d.UTC().String())...)
+	b = append(b, '"')
+
+	return b, nil
 }
 
 func (d *Datetime) UnmarshalText(text []byte) error {
@@ -46,7 +51,7 @@ func (d *Datetime) UnmarshalText(text []byte) error {
 		return err
 	}
 
-	t, err := time.ParseInLocation(DateTimeWithNumericAndUtcZone, string(text), loc)
+	t, err := time.ParseInLocation(time.RFC3339, string(text), loc)
 	if err != nil {
 		return err
 	}
