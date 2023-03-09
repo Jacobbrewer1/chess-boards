@@ -7,15 +7,15 @@ import (
 )
 
 type Session struct {
-	Key    string          `json:"key"`
-	User   entities.User   `json:"user"`
-	Expiry custom.Datetime `json:"expiry"`
+	Key    string           `json:"key"`
+	User   entities.User    `json:"user"`
+	Expiry *custom.Datetime `json:"expiry"`
 }
 
 func NewSession(user entities.User, expiry time.Time) *Session {
 	return &Session{
 		User:   user,
-		Expiry: (custom.Datetime)(expiry),
+		Expiry: (*custom.Datetime)(&expiry),
 	}
 }
 
