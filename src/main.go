@@ -4,17 +4,12 @@ import (
 	"flag"
 	"fmt"
 	"github.com/Jacobbrewer1/chess-boards/src/config"
-	"github.com/Jacobbrewer1/chess-boards/src/custom"
 	"github.com/Jacobbrewer1/chess-boards/src/dataaccess/dal"
-	"github.com/Jacobbrewer1/chess-boards/src/entities"
-	"github.com/Jacobbrewer1/chess-boards/src/session"
-	"github.com/google/uuid"
 	"github.com/gorilla/mux"
 	"html/template"
 	"log"
 	"net/http"
 	"runtime/debug"
-	"time"
 )
 
 func init() {
@@ -84,65 +79,6 @@ func initTemplates() {
 	}).ParseGlob("./assets/templates/*.gohtml"))
 
 	log.Println("templates parsed successfully")
-}
-
-func init() {
-	key := uuid.NewString()
-	n := time.Now()
-
-	db := dal.NewSessionDal(0)
-	err := db.SaveSession(session.Session{
-		Key: key,
-		User: entities.User{
-			Id:        1,
-			FirstName: "temp",
-			Surname:   "test",
-			Email:     "test@mail.co.uk",
-			Password:  "test",
-			LastLogin: (custom.Datetime)(n),
-		},
-		Expiry: (custom.Datetime)(n),
-	})
-	if err != nil {
-		log.Println(err)
-		return
-	}
-
-	got, err := db.GetSession(key)
-	if err != nil {
-		log.Println(err)
-		return
-	}
-	log.Println(got)
-
-	//now := time.Now()
-	//exp := time.Now().Add(time.Hour * 6)
-	//s := session.Session{
-	//	User: entities.User{
-	//		Id:        1,
-	//		FirstName: "Test",
-	//		Surname:   "Session",
-	//		Email:     "test.session@session.com",
-	//		Password:  "test",
-	//		LastLogin: (custom.Datetime)(now),
-	//	},
-	//	Expiry: (custom.Datetime)(exp),
-	//}
-	//
-	//data, err := json.Marshal(s)
-	//if err != nil {
-	//	fmt.Println(err)
-	//}
-	//
-	//err = client.Set("id1234", data, 0).Err()
-	//if err != nil {
-	//	fmt.Println(err)
-	//}
-	//val, err := client.Get("id1234").Result()
-	//if err != nil {
-	//	fmt.Println(err)
-	//}
-	//fmt.Println(val)
 }
 
 func main() {
