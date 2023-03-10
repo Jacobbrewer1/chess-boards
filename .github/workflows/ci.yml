@@ -36,7 +36,7 @@ jobs:
       run: echo $NOW
 
     - name: Build
-      run: go build -v -o chess.exe
+      run: go build -v -o chess.exe ./src
 
     - name: Test
       run: go test -v ./...
