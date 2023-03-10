@@ -9,6 +9,10 @@ on:
     - "main"
     - "develop"
     - "release/*"
+  pull_request:
+    - "main"
+    - "develop"
+    - "release/*"
 
 jobs:
 
