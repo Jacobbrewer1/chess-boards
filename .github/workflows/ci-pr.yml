@@ -10,9 +10,10 @@ on:
     - "develop"
     - "release/*"
   pull_request:
-    - "main"
-    - "develop"
-    - "release/*"
+    branches:
+      - "main"
+      - "develop"
+      - "release/*"
 
 jobs:
 
