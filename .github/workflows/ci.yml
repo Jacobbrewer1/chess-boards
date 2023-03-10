@@ -36,9 +36,7 @@ jobs:
       run: echo $NOW
 
     - name: Build
-      run: |
-        go env -w GOOS=linux
-        go build -v -o chess.exe
+      run: go build -v -o chess.exe
 
     - name: Test
       run: go test -v ./...
