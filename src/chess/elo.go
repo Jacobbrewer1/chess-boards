@@ -10,8 +10,8 @@ func probability(rating1, rating2 float64) float64 {
 	return float64(1.0) * 1.0 / (1 + 1.0*math.Pow(10, 1.0*(rating1-rating2)/400))
 }
 
-// CalculateNew returns the new player a rating and the new rating for player b
-func CalculateNew(ratingA, ratingB float64, constant int, playerAWon custom.Bool) (float64, float64) {
+// NewEloRatings returns the new player a rating and the new rating for player b
+func NewEloRatings(ratingA, ratingB float64, constant int, playerAWon custom.Bool) (float64, float64) {
 	var newRatingA, newRatingB float64
 
 	probabilityPlayerB := probability(ratingA, ratingB)

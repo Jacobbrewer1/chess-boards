@@ -9,7 +9,7 @@ func TestCalculateNew(t *testing.T) {
 	ra := 1200
 	rb := 1000
 	k := 30
-	gotA, gotB := CalculateNew(float64(ra), float64(rb), k, custom.Bool(true))
+	gotA, gotB := NewEloRatings(float64(ra), float64(rb), k, custom.Bool(true))
 
 	//1207.21 Rb = 992.792
 	if gotA != float64(1207) {
