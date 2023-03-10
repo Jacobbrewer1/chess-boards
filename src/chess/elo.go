@@ -5,6 +5,7 @@ import (
 	"math"
 )
 
+// probability returns the probability of rating1 winning
 func probability(rating1, rating2 float64) float64 {
 	return float64(1.0) * 1.0 / (1 + 1.0*math.Pow(10, 1.0*(rating1-rating2)/400))
 }
