@@ -42,6 +42,6 @@ jobs:
       run: go test -v ./...
 
     - name: Build and push docker image
-      run: |
+      run:
         docker build -t ${{ secrets.DOCKER_USERNAME }}/chess-boards:$NOW .
         docker push -t ${{ secrets.DOCKER_USERNAME }}/chess-boards:$NOW
