@@ -43,5 +43,5 @@ jobs:
 
     - name: Build and push docker image
       run: |
-        docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/chess-boards:$NOW .
-        docker push -t ${{ secrets.DOCKER_HUB_USERNAME }}/chess-boards:$NOW
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/chess-boards:$NOW .
+        docker push -t ${{ secrets.DOCKER_USERNAME }}/chess-boards:$NOW
